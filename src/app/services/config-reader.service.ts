@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, take } from 'rxjs';
+import { delay, map, Observable, take } from 'rxjs';
 
 export interface configs {
   apiServer: string;
@@ -18,7 +18,8 @@ export class ConfigReaderService {
 
   getConfigItem(item: string): Observable<string> {
     return this.getJSON('../../assets/configs').pipe(
-      map((p) => {
+      delay(5000),
+      map((p:{[p:string]:string}) => {
         return p[item];
       })
     );

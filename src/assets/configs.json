@@ -1,3 +1,4 @@
 {
-  "apiServer" : "../../assets/alerts.json"
+  "apiServer" : "../../assets/alerts.json",
+  "dbServer" : "../../assets/alerts2.json"
 }
