@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { map, mergeMap } from 'rxjs';
-import { ConfigReaderService } from './services/config-reader.service';
+import { AlertServiceService } from './services/alert-service.service';
 
 @Component({
   selector: 'app-root',
@@ -9,30 +8,11 @@ import { ConfigReaderService } from './services/config-reader.service';
 })
 export class AppComponent {
   title = 'broader';
-  constructor(private configServer: ConfigReaderService) {}
+  constructor(private alertServiceService: AlertServiceService) {}
 
   ngOnInit(): void {
-    // this.configServer.getJSON('../../assets/configs').subscribe( p=> console.log(p['apiServer']));
-    this.configServer
-      .getConfigItem('apiServer')
-      .subscribe((v) => console.log(v));
-
-    const data$ = this.configServer
-      .getConfigItem('apiServer')
-      .pipe(map((apiURL) => this.configServer.getJSON(apiURL)));
-
-    data$.subscribe((data$) => {
-      data$.subscribe((data) =>
-        console.log('-----------111----------------', data)
-      );
-    });
-
-    const data2$ = this.configServer
-      .getConfigItem('apiServer')
-      .pipe(mergeMap((apiURL) => this.configServer.getJSON(apiURL)));
-
-    data2$.subscribe((data2) => {
-      console.log('---------2222------------', data2);
-    });
+    this.alertServiceService
+      .getAlerts()
+      .subscribe((alerts: any) => console.log(alerts));
   }
 }

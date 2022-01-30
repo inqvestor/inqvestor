@@ -13,7 +13,7 @@ export class ConfigReaderService {
   constructor(private http: HttpClient) {}
 
   getJSON(file: string): Observable<any> {
-    return this.http.get(file + '.json');
+    return this.http.get(file + '.json?q=' + Math.random() );
   }
 
   getConfigItem(item: string): Observable<string> {
