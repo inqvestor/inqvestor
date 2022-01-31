@@ -1,0 +1,14 @@
+<section [ngClass]="{'hide': hide}">
+  <div [ngClass]="{'active': show}" class="pop-up" [style.height]="height" [style.width]="width" [style.margin-top]="marginTop"
+  [style.margin-left]="marginLeft" ngDraggable>
+
+  <div style="display: flex; justify-content: space-around; ;">
+    <ng-content select="[title]"></ng-content>
+    <span  (click)="hideModal()"> X</span>
+  </div>
+
+</div>
+
+</section>
+
+

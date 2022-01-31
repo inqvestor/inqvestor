@@ -1,0 +1,13 @@
+{
+  "alerts": [
+    {
+      "alertId" : "A30303gS22",
+      "alert": "System will be down for maintenance"
+    },
+    {
+      "alertId" : "B40303xd21",
+      "alert": "Partner site will be not abvailable"
+    }
+  ]
+
+}

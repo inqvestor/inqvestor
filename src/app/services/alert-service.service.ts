@@ -13,8 +13,11 @@ export class AlertServiceService {
   ) {}
 
   getAlerts(): Observable<any> {
-    return this.configReaderService
-      .getConfigItem('apiServer')
-      .pipe(mergeMap((url) => this.httpClient.get(url)));
+    return this.configReaderService.getConfigItem('apiServer').pipe(
+      mergeMap((baseURL) => {
+        const alertURL = `${baseURL}/alerts`;
+        return this.httpClient.get(alertURL);
+      })
+    );
   }
 }

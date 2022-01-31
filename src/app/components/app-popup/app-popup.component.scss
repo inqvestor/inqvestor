@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+.pop-up {
+  border: 1px solid gray;
+  // width: 300px;
+  // height: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  // margin-top: -200px;
+  // margin-left: -150px;
+  background-color: lightgray;
+  padding: 8px;
+}
+
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}

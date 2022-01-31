@@ -18,7 +18,7 @@ export class ConfigReaderService {
 
   getConfigItem(item: string): Observable<string> {
     return this.getJSON('../../assets/configs').pipe(
-      delay(5000),
+      delay(1000),
       map((p:{[p:string]:string}) => {
         return p[item];
       })

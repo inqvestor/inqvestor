@@ -1,4 +1,4 @@
 {
-  "apiServer" : "../../assets/alerts.json",
+  "apiServer" : "http://localhost:3000",
   "dbServer" : "../../assets/alerts2.json"
 }
