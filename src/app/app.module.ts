@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialLib } from './material-lib';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { AppPopupComponent } from './components/app-popup/app-popup.component';
+import { AlertEditComponent } from './components/alert-edit/alert-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppPopupComponent
+    AppPopupComponent,
+    AlertEditComponent
   ],
   imports: [
     BrowserModule,

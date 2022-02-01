@@ -1,0 +1,7 @@
+<h3>{{title}}</h3>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.alert" cdkFocusInitial>Ok</button>
+</div>
