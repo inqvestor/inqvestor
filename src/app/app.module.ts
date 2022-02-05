@@ -10,19 +10,15 @@ import { AppPopupComponent } from './components/app-popup/app-popup.component';
 import { AlertEditComponent } from './components/alert-edit/alert-edit.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AppPopupComponent,
-    AlertEditComponent
-  ],
+  declarations: [AppComponent, AppPopupComponent, AlertEditComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialLib,
-    AngularDraggableModule
+    AngularDraggableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

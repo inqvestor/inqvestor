@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "postinstall": "npm install husky -g && husky install && husky add .husky/pre-commit \"npx lint-staged\"",
+    "start": " concurrently \"npm run jsonserver\"  \"ng serve\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "jsonserver": "json-server --watch src/assets/db.json",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -22,23 +24,44 @@
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "angular2-draggable": "^2.3.2",
-    "husky": "^7.0.4",
+    "concurrently": "^7.0.0",
+    "figlet": "^1.5.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.0",
+    "@angular-eslint/builder": "13.0.1",
+    "@angular-eslint/eslint-plugin": "13.0.1",
+    "@angular-eslint/eslint-plugin-template": "13.0.1",
+    "@angular-eslint/schematics": "13.0.1",
+    "@angular-eslint/template-parser": "13.0.1",
     "@angular/cli": "~13.2.0",
     "@angular/compiler-cli": "~13.2.0",
+    "@babel/core": "^7.17.0",
+    "@babel/eslint-parser": "^7.17.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "5.3.0",
+    "@typescript-eslint/parser": "5.3.0",
+    "eslint": "^8.8.0",
+    "eslint-plugin-json": "^3.1.0",
+    "husky": "^7.0.4",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "lint-staged": "^12.3.3",
+    "prettier": "^2.5.1",
     "typescript": "~4.5.2"
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,md,ts,html}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
