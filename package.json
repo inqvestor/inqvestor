@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "postinstall": "npm install husky -g && husky install && husky add .husky/pre-commit \"npx lint-staged\"",
     "start": " concurrently \"npm run jsonserver\"  \"ng serve\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "jsonserver": "json-server --watch src/assets/db.json",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "devPrep": "bash ./scripts/postInstall.sh",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -47,7 +48,7 @@
     "@typescript-eslint/parser": "5.3.0",
     "eslint": "^8.8.0",
     "eslint-plugin-json": "^3.1.0",
-    "husky": "^7.0.4",
+    "husky": "^7.0.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
