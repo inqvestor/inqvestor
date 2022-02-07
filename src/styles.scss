@@ -1,0 +1,47 @@
+@use "sass:color";
+//variables
+$font-stack: Roboto, "Helvetica Neue", sans-serif;
+$primary-bg-color:#b6b6b4;
+$primary-fore-color: color.scale( black, $lightness: 10%);
+//styles
+$font-sizes: (
+  "small": 0.7em,
+  "normal": 0.8em,
+  "large": 1.2em,
+);
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+@mixin header($theme:$primary-bg-color) {
+  background: $theme;
+  box-shadow: 0 0 1px rgba($theme, 0.25);
+  font-weight: map-get($font-weights, "bold");
+  color:  $primary-fore-color;
+  padding: 5px;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
+body {
+  font-family: $font-stack;
+  line-height: 20px;
+  font-size: map-get($font-sizes, "normal");
+  color: color.scale(black, $lightness: 10%);
+}
+
+.info {
+  @include header;
+  @include opacity(0.5);
+
+}
+.alert {
+  @include header;
+  font-weight: map-get($font-weights, "medium");
+  background: color.scale($primary-bg-color, $lightness: 75%);
+}

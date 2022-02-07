@@ -9,7 +9,7 @@ export interface DialogData {
 @Component({
   selector: 'app-alert-edit',
   templateUrl: './alert-edit.component.html',
-  styleUrls: ['./alert-edit.component.css'],
+  styleUrls: ['./alert-edit.component.scss'],
 })
 export class AlertEditComponent implements OnInit {
   editMode = false;

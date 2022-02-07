@@ -1,0 +1,14 @@
+// @use '../../src/styles.scss' as *;
+// @use "sass:color";
+
+// .red  {
+//   font-family: $font-stack;
+//   line-height: 20px;
+//   font-size: map-get($font-sizes, "normal");
+//   color: color.scale(red, $lightness: 10%);
+// }
+// .grid-head{
+//   @include header;
+//   font-weight: map-get($font-weights, "medium");
+//   background: color.scale($primary-bg-color, $lightness: 55%);
+// }

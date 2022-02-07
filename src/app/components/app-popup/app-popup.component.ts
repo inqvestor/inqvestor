@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './app-popup.component.html',
   styleUrls: ['./app-popup.component.scss'],
 })
-export class AppPopupComponent implements OnInit {
+export class AppPopupComponent implements OnInit, OnChanges {
   //  @HostBinding('style.background') backgroundColor = 'gray';
   //@HostBinding('attr.ngDraggable') ngDraggable='';
   // @HostBinding('style.color') get textColor() {

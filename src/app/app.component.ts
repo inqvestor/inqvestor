@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlertEditComponent } from './components/alert-edit/alert-edit.component';
@@ -9,9 +9,9 @@ import { AlertServiceService } from './services/alert-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   title = 'broader';
   constructor(private alertServiceService: AlertServiceService,public dialog: MatDialog) {}
   loading = true;
