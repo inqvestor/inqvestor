@@ -1,14 +1,14 @@
-// @use '../../src/styles.scss' as *;
-// @use "sass:color";
+@use '../../src/styles.scss' as brd;
+@use "sass:color";
+@use "sass:map";
 
-// .red  {
-//   font-family: $font-stack;
-//   line-height: 20px;
-//   font-size: map-get($font-sizes, "normal");
-//   color: color.scale(red, $lightness: 10%);
-// }
-// .grid-head{
-//   @include header;
-//   font-weight: map-get($font-weights, "medium");
-//   background: color.scale($primary-bg-color, $lightness: 55%);
-// }
+.red  {
+  font-family: brd.$font-stack;
+  line-height: 20px;
+  font-size: map-get(brd.$font-sizes, "normal");
+  color: color.scale(red, $lightness: 10%);
+}
+.grid-head{
+  @include brd.header ;
+  font-weight: map-get(brd.$font-weights, "medium");
+ }

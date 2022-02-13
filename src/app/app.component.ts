@@ -5,6 +5,7 @@ import { AlertEditComponent } from './components/alert-edit/alert-edit.component
 import { AppPopupComponent } from './components/app-popup/app-popup.component';
 import { Alert } from './models/alert';
 import { AlertServiceService } from './services/alert-service.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,18 @@ import { AlertServiceService } from './services/alert-service.service';
 })
 export class AppComponent implements AfterViewInit, OnInit {
   title = 'broader';
-  constructor(private alertServiceService: AlertServiceService,public dialog: MatDialog) {}
+  constructor(private alertServiceService: AlertServiceService,public dialog: MatDialog,private themeService: ThemeService) {}
+
+
+  get dark() {
+    return this.themeService.theme === 'dark';
+  }
+
+  set dark(enabled: boolean) {
+    this.themeService.theme = enabled ? 'dark' : 'default';
+  }
+
+
   loading = true;
   showAlertPopup=false;
   displayedColumns: string[] = ['alertId', 'alert', 'actions'];
@@ -21,6 +33,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   dataSource = new MatTableDataSource();
 
   ngOnInit(): void {
+    this.dark=false;
     //  this.dataSource$ = this.alertServiceService.getAlerts();
     this.alertServiceService
       .getAlerts()

@@ -1,13 +1,40 @@
 @use "sass:color";
-//variables
+@use "sass:map";
 $font-stack: Roboto, "Helvetica Neue", sans-serif;
-$primary-bg-color:#b6b6b4;
-$primary-fore-color: color.scale( black, $lightness: 10%);
+
+//dark theme colors
+$drk-bg: color.scale(black, $lightness: 10%);
+$drk-card: color.scale(#064663, $lightness: 20%);
+$drk-header: color.scale(#2d4263, $lightness: 20%);
+$drk-hover: color.scale(#141e61, $lightness: 20%);
+$drk-nav: color.scale(#333456, $lightness: 20%);
+$drk-primary-text:  #fdeff4 ;
+$drk-secondary-text:  #eeeeee;
+
+//default theme colors
+$lght-bg: color.scale(gray, $lightness: 90%);
+$lght-card: color.scale(#064663, $lightness: 10%);
+$lght-header: color.scale(#2d4263, $lightness: 10%);
+$lght-hover: color.scale(#141e61, $lightness: 10%);
+$lght-nav: color.scale(#333456, $lightness: 10%);
+$lght-primary-text: color.scale(black, $lightness: 30%);
+$lght-secondary-text: color.scale(black, $lightness: 40%);
+
+//selected theme colors
+$bg: var(--bg);
+$card: var(--card);
+$header: var(--header);
+$hover: var(--hover);
+$nav: var(--nav);
+$primary-text: var(--primary-text);
+$secondary-text: var(--secondary-text);
+
 //styles
 $font-sizes: (
-  "small": 0.7em,
+  "small": 0.5em,
   "normal": 0.8em,
-  "large": 1.2em,
+  "large": 1.5em,
+  "x-large": 2em,
 );
 $font-weights: (
   "regular": 400,
@@ -15,12 +42,12 @@ $font-weights: (
   "bold": 700,
 );
 
-@mixin header($theme:$primary-bg-color) {
-  background: $theme;
-  box-shadow: 0 0 1px rgba($theme, 0.25);
+@mixin header($bg: $header, $color: $drk-primary-text) {
+  background: $bg;
+  box-shadow: 0 0 1px rgba($bg, 0.25);
   font-weight: map-get($font-weights, "bold");
-  color:  $primary-fore-color;
-  padding: 5px;
+  color: $color;
+  padding: 1em;
 }
 
 @mixin opacity($opacity) {
@@ -28,20 +55,42 @@ $font-weights: (
   filter: alpha(opacity=($opacity * 100));
 }
 
-body {
+:root[theme="dark"] {
+  // --primary-color: #{$red-cosmo};
+  --bg: #{$drk-bg};
+  --card: #{$drk-card};
+  --header: #{$drk-header};
+  --hover: #{$drk-hover};
+  --nav: #{$drk-nav};
+  --primary-text: #{$drk-primary-text};
+  --secondary-text: #{$drk-secondary-text};
+}
+
+:root[theme="default"] {
+  --bg: #{$lght-bg};
+  --card: #{$lght-card};
+  --header: #{$lght-header};
+  --hover: #{$lght-hover};
+  --nav: #{$lght-nav};
+  --primary-text: #{$lght-primary-text};
+  --secondary-text: #{$lght-secondary-text};
+}
+
+html {
   font-family: $font-stack;
-  line-height: 20px;
+  line-height: 1.2em;
   font-size: map-get($font-sizes, "normal");
-  color: color.scale(black, $lightness: 10%);
+  color:$primary-text;
+  background-color: $bg;
+  transition: all ease-in-out 600ms;
+
 }
 
 .info {
-  @include header;
-  @include opacity(0.5);
-
+  @include header($card);
+  // @include opacity(0.5);
 }
 .alert {
   @include header;
   font-weight: map-get($font-weights, "medium");
-  background: color.scale($primary-bg-color, $lightness: 75%);
 }

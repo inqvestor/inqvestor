@@ -3,22 +3,28 @@
 
 <div mat-dialog-actions>
   <button mat-button (click)="addNewAlert()">Add New Alert</button>
+
+
+  <button mat-flat-button color="primary">Primary</button>
+  <input type="checkbox" name="dark" [(ngModel)]="dark" />
+
 </div>
 
-
+<br />
 <div style="left: 0; right:0;" *ngIf="!loading; else processing">
 
 
-<div class="alert">ALERT</div>
+  <div class="alert">ALERT</div>
+  <div class="info">INFO</div>
 
-<br/>
+  <br />
 
   <mat-form-field appearance="standard">
 
     <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
   </mat-form-field>
 
-  <table mat-table  style="width:100%" [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table style="width:100%" [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!-- alertId Column -->
     <ng-container matColumnDef="alertId">
@@ -29,7 +35,7 @@
 
     <!-- alert Column -->
     <ng-container matColumnDef="alert">
-      <th mat-header-cell  class="grid-head"  *matHeaderCellDef> Alert </th>
+      <th mat-header-cell class="grid-head" *matHeaderCellDef> Alert </th>
       <td mat-cell *matCellDef="let element"> {{element.alert}} </td>
     </ng-container>
 
@@ -38,7 +44,7 @@
     <ng-container cdkColumnDef="actions">
       <!-- <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let row"> <button md-raised-button (click)="editAlert()">Edit</button> </td> -->
-      <th mat-header-cell  class="grid-head" *matHeaderCellDef> Action </th>
+      <th mat-header-cell class="grid-head" *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element" class="action-link">
         <a (click)="editAlert(element)">Edit</a>
         <!-- | <a (click)="openDialog('Delete',element)">Delete</a>   -->

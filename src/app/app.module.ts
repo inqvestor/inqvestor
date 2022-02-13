@@ -8,6 +8,7 @@ import { MaterialLib } from './material-lib';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { AppPopupComponent } from './components/app-popup/app-popup.component';
 import { AlertEditComponent } from './components/alert-edit/alert-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, AppPopupComponent, AlertEditComponent],
@@ -17,6 +18,7 @@ import { AlertEditComponent } from './components/alert-edit/alert-edit.component
     BrowserAnimationsModule,
     MaterialLib,
     AngularDraggableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
