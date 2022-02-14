@@ -9,9 +9,13 @@ import { AngularDraggableModule } from 'angular2-draggable';
 import { AppPopupComponent } from './components/app-popup/app-popup.component';
 import { AlertEditComponent } from './components/alert-edit/alert-edit.component';
 import { FormsModule } from '@angular/forms';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
-  declarations: [AppComponent, AppPopupComponent, AlertEditComponent],
+  declarations: [AppComponent, AppPopupComponent,
+
+    AlertEditComponent, SideNavComponent, LayoutComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -29,6 +29,11 @@ $nav: var(--nav);
 $primary-text: var(--primary-text);
 $secondary-text: var(--secondary-text);
 
+
+//all-themes common colors
+$class-head-bg: color.scale(#424242, $lightness: 5%) ;
+$class-footer-bg: color.scale(#424242, $lightness: 10%) ;
+$drawer-bg:#424242;
 //styles
 $font-sizes: (
   "small": 0.5em,
@@ -54,6 +59,11 @@ $font-weights: (
   opacity: $opacity;
   filter: alpha(opacity=($opacity * 100));
 }
+@mixin selectedTheme{
+  color:$primary-text;
+  background-color: $bg;
+  transition: all ease-in-out 600ms;
+}
 
 :root[theme="dark"] {
   // --primary-color: #{$red-cosmo};
@@ -76,14 +86,16 @@ $font-weights: (
   --secondary-text: #{$lght-secondary-text};
 }
 
-html {
+html, body {
+  @include selectedTheme;
   font-family: $font-stack;
   line-height: 1.2em;
   font-size: map-get($font-sizes, "normal");
-  color:$primary-text;
-  background-color: $bg;
-  transition: all ease-in-out 600ms;
+  margin: 0px !important;
+}
 
+.selectedTheme{
+  @include selectedTheme;
 }
 
 .info {
@@ -93,4 +105,13 @@ html {
 .alert {
   @include header;
   font-weight: map-get($font-weights, "medium");
+}
+.class-head{
+  @include header($class-head-bg);
+  text-align: center;
+}
+.class-footer{
+  @include header($class-footer-bg);
+  text-align: center;
+
 }
