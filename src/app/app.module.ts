@@ -11,11 +11,12 @@ import { AlertEditComponent } from './components/alert-edit/alert-edit.component
 import { FormsModule } from '@angular/forms';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { IoniconComponent } from './components/ionicon/ionicon.component';
 
 @NgModule({
   declarations: [AppComponent, AppPopupComponent,
 
-    AlertEditComponent, SideNavComponent, LayoutComponent],
+    AlertEditComponent, SideNavComponent, LayoutComponent, IoniconComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
